@@ -1,5 +1,5 @@
 from pyomo.environ import *
-# import highspy
+import highspy
 
 # Create model object
 model=ConcreteModel()

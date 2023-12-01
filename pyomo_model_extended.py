@@ -5,8 +5,8 @@ from pyomo.opt import SolverFactory
 model = ConcreteModel()
 
 # Cnatidad de productos y sellers
-N = 10 # Productos
-M = 200 # sellers
+N = 20 # Productos
+M = 100 # sellers
 
 # Sets and parameters
 model.P = RangeSet(1, N)  # Products
@@ -64,5 +64,5 @@ model.activate_y = Constraint(model.L, rule=activate_y_if_l_is_chosen)
 model.wanted_products = Constraint(model.P, rule=wanted_products_must_be_bought)
 
 # Applying the solver
-SolverFactory('glpk').solve(model)
+SolverFactory('appsi_highs').solve(model)
 model.display()

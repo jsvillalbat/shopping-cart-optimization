@@ -1,10 +1,11 @@
 import random
+import pulp as pl
 from pulp import LpProblem, LpVariable, lpSum, LpMinimize
 
 # Número de productos y sellers
 
-N = 10 # Products
-M = 200 # sellers
+N = 30 # Products
+M = 300 # sellers
 
 # Datos de ejemplo
 productos = [j for j in range(N)]

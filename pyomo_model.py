@@ -1,3 +1,4 @@
+import highspy
 from pyomo.environ import *
 from pyomo.opt import SolverFactory
 
@@ -125,7 +126,7 @@ model.activate_y = Constraint(model.L, rule=activate_y_if_l_is_chosen)
 model.wanted_products = Constraint(model.P, rule=wanted_products_must_be_bought)
 
 # Applying the solver
-highs_path = "./HiGHS/build/bin/highs"
-highs_path = "/Users/tul-admin/Desktop/shopping_cart_optimization/HiGHS/build/bin/highs"
-SolverFactory('highs').solve(model, executable=highs_path)
+#highs_path = "/home/sevito/HiGHS/build/bin/highs"
+# SolverFactory('highs').solve(model, executable=highs_path)
+SolverFactory('appsi_highs').solve(model)
 model.display()
